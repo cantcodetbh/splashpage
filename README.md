@@ -1,6 +1,6 @@
 # splashpage
 Current Feautures:
-Calendar
-Clock
-Sticky Notes
-Location + Weather
+<br>Calendar
+<br>Clock
+<br>Sticky Notes
+<br>Location + Weather
