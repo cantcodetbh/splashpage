@@ -94,7 +94,7 @@
             Postick.add({
                 top: parseInt($this.position().top),
                 left: parseInt($this.position().left),
-                text: $this.children('.editable').text()
+                text: $this.children('.editable').html()
             });
         });
     }

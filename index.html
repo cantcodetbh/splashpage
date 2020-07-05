@@ -1,11 +1,12 @@
-<!DOCTYPE html>
+<!DOCTYPE = html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>☂️ ☂️ ☂️ ☂️ ☂️ ☂️ ☂️ ☂️ </title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.3/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="breaking-news-ticker.min.css">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
@@ -68,6 +69,48 @@
     </script>
 
 <!-- *********CALENDAR END*********** -->
+
+<!-- ***************NEWS TRACKER************ -->
+
+<div class="bn-breaking-news" id="newsTicker">
+    <div class="bn-news">
+        <ul>
+            <li><span class="bn-loader-text">Data loading...</span></li>
+        </ul>
+    </div>
+
+<!-- *****BUTTONS DISABLED LOOK MEH
+    <div class="bn-controls">
+        <button><span class="bn-arrow bn-prev"></span></button>
+        <button><span class="bn-action"></span></button>
+        <button><span class="bn-arrow bn-next"></span></button>
+    </div>  -->
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<script src="/js/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function(){
+        
+        $('#newsTicker').breakingNews({
+            themeColor: '#282a34b9',
+            source: {
+                type:'rss',
+                usingApi:'rss2json',
+                rss2jsonApiKey: 'qqlq9apgcpvku4ctiv9epeyyyp7jf3ibecfa3d0t',
+                url:'http://feeds.bbci.co.uk/news/rss.xml', 
+                limit:7, 
+                showingField:'title',
+                linkEnabled: true,
+                target:'_blank', 
+                seperator: '<span class="bn-seperator" style="background-image:url(http://newsvote.bbc.co.uk/favicon.ico);"></span>',
+                errorMsg: 'RSS Feed not loaded. Please try again.'
+            }
+        });
+    
+    });
+</script>
+
+<!-- ********NEWS TRACKER END********** -->
 
 <!-- ************BOTTOM LEFT LINKS************ -->
 
@@ -133,8 +176,6 @@
         var interval = setInterval(clock, 1000);
     </script>
     <!-- **************CLOCK END************** -->
-
-
 
 </body>
 <script src="js/weather.js"></script>

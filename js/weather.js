@@ -33,12 +33,40 @@
               location.innerHTML =
                 data.name //+ " (" + latitude + "°, " + longitude + "°)";//
               description.innerHTML = data.weather[0].main;
-            });
-        }
-      
+
+              var images = [
+              {
+                  // default
+                  url: 'bg.gif'
+              },
+              {
+                  condition: ['Clouds'],
+                  url: 'bg2.gif'
+              },
+              {
+                  condition:  ['Rain'],
+                  url: 'bg.gif'
+              }];
+
+
+
+              // background
+              var url;
+              for (var i in images) {
+                  if (!images[i]["condition"] || images[i]["condition"].indexOf(description.innerHTML) > -1) {
+                      url = images[i]["url"];
+                  }
+              }
+              $('body').css('background-image', 'url(images/' + url + ')');
+                  });
+          }
+
         function error() {
           location.innerHTML = "Unable to retrieve your location";
         }
-      }
+
+
+          }
+  
       
-      getWeather();
+  getWeather();
